@@ -30,8 +30,8 @@
                 </div>
 
                 <div>
-                    <label class="block text-xs uppercase tracking-wider text-slate-400 mb-1">Usuario de Instagram (Sin @)</label>
-                    <input type="text" id="instagram_dueno" required class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Ej. burgerluxury">
+                    <label class="block text-xs uppercase tracking-wider text-slate-400 mb-1">Número de WhatsApp</label>
+                    <input type="tel" id="whatsapp_dueno" required class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="Ej. +584121234567">
                 </div>
 
                 <div>
@@ -56,8 +56,8 @@
     <!-- Lógica de Conexión con Supabase -->
     <script>
         // CONFIGURA TUS CREDENCIALES DE SUPABASE AQUÍ
-        const SUPABASE_URL = 'https://hsbdoqexxvkeudjqatvq.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhzYmRvcWV4eHZrZXVkanFhdHZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ5MTkxNDQsImV4cCI6MjEwMDQ5NTE0NH0.vMLF4tYSXvkdf8fxhbUIYDuhzqANUrJIxX4EgkybpwA';
+        const SUPABASE_URL = 'https://yoibmpulvokhvvhkryzv.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlvaWJtcHVsdm9raHZ2aGtyeXp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1MDgwODQsImV4cCI6MjA5ODA4NDA4NH0.cNq3eZzXyB7kqdsyqf3ctKsYO5x1ABo20hgFeJdyzBE';
 
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
@@ -72,7 +72,7 @@
             mensajeAlerta.classList.add('hidden');
 
             const nombreNegocio = document.getElementById('nombre_negocio').value.trim();
-            const instagramDueno = document.getElementById('instagram_dueno').value.trim().toLowerCase();
+            const whatsappDueno = document.getElementById('whatsapp_dueno').value.trim();
             const email = document.getElementById('email').value.trim();
 
             try {
@@ -82,7 +82,7 @@
                     .insert([
                         { 
                             nombre_negocio: nombreNegocio,
-                            instagram_dueno: instagramDueno,
+                            whatsapp_dueno: whatsappDueno,
                             email: email
                         }
                     ]);
